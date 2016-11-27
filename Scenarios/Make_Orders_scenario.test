@@ -1,0 +1,36 @@
+scenario Make_Orders
+load ../../../../../../../../Scenari/Online_Order_Application/Online_Order_Application_avalla.asm
+	
+check currState = INIT and currStep = 1 and previousFlowStep = 1;
+
+step
+check currState = READY;
+
+set useCaseChosen :=MAKEORDERS;
+set the_user_is_register:=true;
+set the_orders_manager_enters_cancel:=false;
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=MAKEORDERS_BASIC and currState=EXECUTING and currStep=2 and currUseCase=MAKEORDERS;
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=MAKEORDERS_BASIC and currState=EXECUTING and currStep=3 and currUseCase=MAKEORDERS;
+
+set the_amount_entered_isnt_negative:=true;
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=MAKEORDERS_BASIC and currState=EXECUTING and currStep=4 and currUseCase=MAKEORDERS;
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=MAKEORDERS_BASIC and currState=EXECUTING and currStep=5 and currUseCase=MAKEORDERS;
+
+
+set the_order_has_been_performed:=true;
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=MAKEORDERS_BASIC and currState=READY and currStep=6 and currUseCase=MAKEORDERS;
+
+

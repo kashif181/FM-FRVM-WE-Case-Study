@@ -1,0 +1,48 @@
+scenario CO_The_order_has_been_cancelled_scenario
+load ../../../../../../../../Scenari/Online_Order_Application/Online_Order_Application_avalla.asm
+	
+check currState = INIT and currStep = 1 and previousFlowStep = 1;
+
+step
+check currState = READY;
+
+set useCaseChosen :=CANCELORDERS;
+
+set the_system_is_idle:=true;
+set the_orders_manager_enters_cancel:=false;
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=CANCELORDERS_BASIC and currState=EXECUTING and currStep=2 and currUseCase=CANCELORDERS;
+
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=CANCELORDERS_BASIC and currState=EXECUTING and currStep=3 and currUseCase=CANCELORDERS;
+
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=CANCELORDERS_BASIC and currState=EXECUTING and currStep=4 and currUseCase=CANCELORDERS;
+
+
+set the_order_has_been_cancelled:=false;
+set the_orders_manager_enters_cancel:=false;
+
+
+
+set the_system_displays_an_error_message:=true;
+step
+check currFlow=CANCELORDERS_SAF_01 and currState=EXECUTING and currStep=2 and currUseCase=CANCELORDERS;
+
+
+
+step
+check currFlow=CANCELORDERS_SAF_01 and currState=ABORTED and currStep=3 and currUseCase=CANCELORDERS;
+
+
+
+
+set the_order_has_not_been_cancelled:=true;
+step
+check currFlow=CANCELORDERS_SAF_01 and currState=READY and currStep=4 and currUseCase=CANCELORDERS;

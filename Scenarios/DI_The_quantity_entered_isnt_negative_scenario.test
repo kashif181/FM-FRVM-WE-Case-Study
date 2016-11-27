@@ -1,0 +1,45 @@
+scenario DI_The_quantity_entered_isnt_negative_scenario
+load ../../../../../../../../Scenari/Online_Order_Application/Online_Order_Application_avalla.asm
+	
+check currState = INIT and currStep = 1 and previousFlowStep = 1;
+
+step
+check currState = READY;
+
+set useCaseChosen :=DELETEITEMS;
+
+set the_system_is_idle:=true;
+set the_orders_manager_enters_cancel:=false;
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=DELETEITEMS_BASIC and currState=EXECUTING and currStep=2 and currUseCase=DELETEITEMS;
+
+
+set the_orders_manager_enters_cancel:=false;
+step
+check currFlow=DELETEITEMS_BASIC and currState=EXECUTING and currStep=3 and currUseCase=DELETEITEMS;
+
+
+set the_quantity_entered_isnt_negative:=false;
+set the_orders_manager_enters_cancel:=false;
+
+
+
+
+set the_system_displays_an_error_message:=true;
+step
+check currFlow=DELETEITEMS_SAF_01 and currState=EXECUTING and currStep=2 and currUseCase=DELETEITEMS;
+
+
+
+step
+check currFlow=DELETEITEMS_SAF_01 and currState=ABORTED and currStep=3 and currUseCase=DELETEITEMS;
+
+
+
+
+set the_product_has_not_been_added:=true;
+set the_quantity_of_the_product_has_not_been_updated:=true;
+step
+check currFlow=DELETEITEMS_SAF_01 and currState=READY and currStep=4 and currUseCase=DELETEITEMS;

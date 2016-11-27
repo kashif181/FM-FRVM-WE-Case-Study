@@ -1,0 +1,28 @@
+scenario Register
+load ../../../../../../../../Scenari/Online_Order_Application/Online_Order_Application_avalla.asm
+	
+check currState = INIT and currStep = 1 and previousFlowStep = 1;
+
+step
+check currState = READY;
+
+set useCaseChosen :=REGISTER;
+set login_page_is_visible:=true;
+set the_user_clickcancel:=false;
+
+set the_user_clickcancel:=false;
+step
+check currFlow=REGISTER_BASIC and currState=EXECUTING and currStep=2 and currUseCase=REGISTER;
+
+set the_credential_are_correct:=true;
+set the_user_clickcancel:=false;
+step
+check currFlow=REGISTER_BASIC and currState=EXECUTING and currStep=3 and currUseCase=REGISTER;
+
+
+set the_user_is_register:=true;
+set the_user_clickcancel:=false;
+step
+check currFlow=REGISTER_BASIC and currState=READY and currStep=4 and currUseCase=REGISTER;
+
+

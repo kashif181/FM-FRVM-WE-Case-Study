@@ -1,0 +1,1435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<squall.tao.usecasemetamodel.UseCaseModel:UCModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:squall.tao.usecasemetamodel.SentenceSemanticTypes="http://squall/tao/UseCaseMetamodel/SentenceSemanticTypes.ecore" xmlns:squall.tao.usecasemetamodel.UseCaseModel="http://squall/tao/UseCaseMetamodel/UseCaseModel.ecore" xmlns:squall.tao.usecasemetamodel.UseCaseNL="http://squall/tao/UseCaseMetamodel/UseCaseNL.ecore" xmlns:squall.tao.usecasemetamodel.UseCaseNLSentencePattern="http://squall/tao/UseCaseMetamodel/UseCaseNLSentencePattern.ecore" xmlns:squall.tao.usecasemetamodel.UseCaseTemplate="http://squall/tao/UseCaseMetamodel/UseCaseTemplate.ecore" name="Online Order Application" description="Use case meta model for Online Order Application">
+  <modelElements xsi:type="squall.tao.usecasemetamodel.UseCaseModel:Actor" name="User" description="User is a customer"/>
+  <modelElements xsi:type="squall.tao.usecasemetamodel.UseCaseModel:UseCase" name="Register" description="User register himself with in the system">
+    <specification>
+      <preCondition description="" content="Login page is visible">
+        <preConditonSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Pre 1" description="Login page is visible" content="Login page is visible">
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" name="login page"/>
+          <predicate name="is visible"/>
+        </preConditonSentences>
+      </preCondition>
+      <briefDescription content="Register to system">
+        <sentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="bf1" content="resgister to system"/>
+      </briefDescription>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:BasicFlow">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 1" description="The User enter username and password " content="The User enter username and password ">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="User" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="enter username and password.">
+            <predicator name="enters" description="enters">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="username and password">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the products" description="the products" preHS="the" headString="products">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="products" description="products" number="Plural" basis="product"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to order">
+              <form name="to order" description="to order" preHS="to" postHS="" headString="order">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to order" description="to order" form="Infinitive" Basis="order"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:ConditionCheckSentence" name="Basic flow step 2" description="The system VALIDATES THAT username and password are correct" content="The system VALIDATES THAT username and password are correct">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Validation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <condition xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="condition" description="The credential are correct." content="The credential are correct.">
+            <subject description="The credentials">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The amount entered" description="The amount entered" preHS="The" postHS="entered" headString="amount">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The "/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="amount" description="amount" basis="amount"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:EdParticiplePhrase" description="entered">
+                  <head name="entered" description="entered" form="PastParticiple" Basis="enter"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="are correct">
+              <predicator name="are" description="are" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="isn't" description="isn't" Basis="is"/>
+              </predicator>
+              <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="correct">
+                <form description="negative" preHS="" postHS="" headString="negative">
+                  <head name="negative" description="negative"/>
+                </form>
+              </complements>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SLVSubjAdjPComplt" name="S-LV-SubjAdjPComplt" description="S-LV-SubjAdjPComplt"/>
+          </condition>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+        </steps>
+        <postCondition name="Basic flow post">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The user is register" content="The user is register">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has been performed">
+              <predicator name="has been performed" description="has been performed">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been performed" description="has been performed" form="Passive" Basis="perform"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SpecificAlternative" name="alt 1" bfs="//@modelElements.3/@specification/@flows.0/@steps.2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt 1 Step 1" description="The system displays an error message." content="The system displays an error message.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="displays an error message">
+            <predicator name="displays" description="displays">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="displays" description="displays" Basis="display"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="an error message">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="an error message" description="an error message" preHS="an error" postHS="" headString="message">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="an" description="an"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="error" description="error" basis="error"/>
+                <head name="message" description="message" basis="message"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt 1 Step 2" content="ABORT">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+        </steps>
+        <postCondition name="alt1 Post" content="The item has not been added. The quantity of the item has not been updated.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The product has not been added." content="The product has not been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has not been added">
+              <predicator name="has not been added" description="has not been added" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been added" description="has not been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 2" description="The quantity of the product has not been updated." content="The quantity of the product has not been updated.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The quantity of the product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The quantity of the product" description="The quantity of the product" preHS="The" postHS="of th product" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="quantity" description="quantity" basis="quantity"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:PrepositionalPhrase" name="of the product" description="of the product" headString="">
+                  <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" postHS="" headString="product">
+                    <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                    <head name="product" description="product" basis="product"/>
+                  </postHeadString>
+                  <head name="of" description="of"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="has not been updated">
+              <predicator name="has not been updated" description="has not been updated">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been updated" description="has not been updated" form="Passive" Basis="update"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:GlobalAlternative" name="alt 2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Condition" description="The user clickCancel." content="The user clickCancel.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="enters Cancel">
+            <predicator name="enters" description="enters">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="enters" description="enters" Basis="enter"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="Cancel">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Cancel" description="Cancel" preHS="" postHS="" headString="Cancel">
+                <head name="Cancel" description="Cancel" number="Plural" basis="cancel"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDO" name="ActorSubj-V-DO" description="ActorSubj-V-DO" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Step 1" description="The system cancels the transaction." content="The system cancels the transaction.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="cancels the transaction">
+            <predicator name="cancels" description="cancels">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="cancels" description="cancels" Basis="cancel"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the transaction">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the transaction" description="the transaction" preHS="the " postHS="" headString="transaction">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="transaction" description="transaction" basis="transaction"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt2 Step 2" content="ABORT"/>
+        <postCondition name="alt2 Post" content="The item has not been added.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Post 1" description="The product has not been added." content="The product has not been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has not been added">
+              <predicator name="has not been added" description="has not been added" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been added" description="has not been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+    </specification>
+  </modelElements>
+  <modelElements xsi:type="squall.tao.usecasemetamodel.UseCaseModel:UseCase" name="Make Orders" description="Make Orders">
+    <specification>
+      <preCondition content="The system is idle.">
+        <preConditonSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Pre 1" description="The user is register" content="The user is register">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="is idle">
+            <predicator name="is" description="is">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="is" description="is"/>
+            </predicator>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="idle">
+              <form description="idle" preHS="" postHS="" headString="idle">
+                <head name="idle" description="idle"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjLVSubjAdjPComplt" name="SysSubj-LV-SubjAdjPComplt" description="SysSubj-LV-SubjAdjPComplt" isPassiveSentence="false"/>
+        </preConditonSentences>
+      </preCondition>
+      <briefDescription content="Make a new order.">
+        <sentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="bf1" content="Make a new order."/>
+      </briefDescription>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:BasicFlow">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 1" description="The Orders Manager selects the products to order." content="The Orders Manager selects the products to order.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="selects the products to order.">
+            <predicator name="selects" description="selects">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the products">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the products" description="the products" preHS="the" headString="products">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="products" description="products" number="Plural" basis="product"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to order">
+              <form name="to order" description="to order" preHS="to" postHS="" headString="order">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to order" description="to order" form="Infinitive" Basis="order"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 2" description="The Orders Manager selects the quantity of each product to order." content="The Orders Manager selects the quantity of each product to order.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="selects the quantity of each product to order.">
+            <predicator name="selects" description="selects">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the quantity">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the quantity" description="the quantity" preHS="the" postHS="" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="quantity" description="quantity" basis="quantity"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="of each product">
+              <form description="of each product">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="each product" description="each product" preHS="each" postHS="" headString="product" actorPosition="isActor">
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:AdjectivePhrase" name="each" description="each" preHS="each" headString="each">
+                    <head name="each" description="each"/>
+                  </preHeadString>
+                  <head name="product" description="product" number="Plural" basis="product"/>
+                </postHeadString>
+                <head name="of" description="of"/>
+              </form>
+            </complements>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to order">
+              <form name="to order" description="to order" preHS="to" postHS="" headString="order">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to order" description="to order" form="Infinitive" Basis="order"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:ConditionCheckSentence" name="Basic flow step 3" description="The system VALIDATES THAT the amount entered isnt negative." content="The system VALIDATES THAT the amount entered isnt negative.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Validation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <condition xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="condition" description="The amount entered isnt negative." content="The amount entered isnt negative.">
+            <subject description="The amount entered">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The amount entered" description="The amount entered" preHS="The" postHS="entered" headString="amount">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The "/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="amount" description="amount" basis="amount"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:EdParticiplePhrase" description="entered">
+                  <head name="entered" description="entered" form="PastParticiple" Basis="enter"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="isn't negative">
+              <predicator name="isn't" description="isn't" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="isn't" description="isn't" Basis="is"/>
+              </predicator>
+              <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="negative">
+                <form description="negative" preHS="" postHS="" headString="negative">
+                  <head name="negative" description="negative"/>
+                </form>
+              </complements>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SLVSubjAdjPComplt" name="S-LV-SubjAdjPComplt" description="S-LV-SubjAdjPComplt"/>
+          </condition>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 4" description="The system adds the order to the list of orders." content="The system adds the order to the list of orders.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="adds the order to the list of orders">
+            <predicator name="adds" description="adds">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="adds" description="adds" Basis="add"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the order" description="the order" preHS="the" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="to the list" containingSystem="true">
+              <form description="to the list">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the list" description="the list" preHS="the " postHS="" headString="list" sysPosition="headStringSys">
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                  <head name="list" description="list" basis="list"/>
+                </postHeadString>
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:To" name="to" description="to"/>
+              </form>
+            </complements>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="of orders">
+              <form description="of orders">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="orders" description="orders" preHS="orders" postHS="" headString="orders" actorPosition="isActor">
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="orders" description="orders" number="Plural" basis="order"/>
+                </postHeadString>
+                <head name="of" description="of"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDOObjPPComplt" name="SysSubj-V-DO-PPComplt" description="SysSubj-V-DO-PPComplt" isPassiveSentence="false"/>
+        </steps>
+        <postCondition name="Basic flow post">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The order has been performed." content="The order has been performed.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has been performed">
+              <predicator name="has been performed" description="has been performed">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been performed" description="has been performed" form="Passive" Basis="perform"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SpecificAlternative" name="alt 1" bfs="//@modelElements.2/@specification/@flows.0/@steps.2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt1 Step 1" description="The system displays an error message." content="The system displays an error message.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="displays an error message">
+            <predicator name="displays" description="displays">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="displays" description="displays" Basis="display"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="an error message">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="an error message" description="an error message" preHS="an error" postHS="" headString="message">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="an" description="an"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="error" description="error" basis="error"/>
+                <head name="message" description="message" basis="message"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt1 Step 2" content="ABORT">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+        </steps>
+        <postCondition name="alt1 Post" content="The order has not been performed.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Post 1" description="The order has not been performed." content="The order has not been performed.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has not been performed">
+              <predicator name="has not been performed" description="has not been performed" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been performed" description="has not been performed" form="Passive" Basis="perform"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:GlobalAlternative" name="alt 2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Condition" description="The Orders Manager enters Cancel." content="The Orders Manager enters Cancel.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="enters Cancel">
+            <predicator name="enters" description="enters">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="enters" description="enters" Basis="enter"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="Cancel">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Cancel" description="Cancel" preHS="" postHS="" headString="Cancel">
+                <head name="Cancel" description="Cancel" number="Plural" basis="cancel"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDO" name="ActorSubj-V-DO" description="ActorSubj-V-DO" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Step 1" description="The system cancels the transaction." content="The system cancels the transaction.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="cancels the transaction">
+            <predicator name="cancels" description="cancels">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="cancels" description="cancels" Basis="cancel"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the transaction">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the transaction" description="the transaction" preHS="the " postHS="" headString="transaction">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="transaction" description="transaction" basis="transaction"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt2 Step 2" content="ABORT"/>
+        <postCondition name="alt2 Post" content="The order has not been performed.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Post 1" description="The order has not been performed." content="The order has not been performed.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has not been performed">
+              <predicator name="has not been performed" description="has not been performed" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been performed" description="has not been performed" form="Passive" Basis="perform"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+    </specification>
+  </modelElements>
+  <modelElements xsi:type="squall.tao.usecasemetamodel.UseCaseModel:UseCase" name="Add Items" description="Add Items">
+    <specification>
+      <preCondition content="The user is register">
+        <preConditonSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Pre 1" description="The system is idle." content="The system is idle.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="is idle">
+            <predicator name="is" description="is">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="is" description="is"/>
+            </predicator>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="idle">
+              <form description="idle" preHS="" postHS="" headString="idle">
+                <head name="idle" description="idle"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjLVSubjAdjPComplt" name="SysSubj-LV-SubjAdjPComplt" description="SysSubj-LV-SubjAdjPComplt" isPassiveSentence="false"/>
+        </preConditonSentences>
+      </preCondition>
+      <briefDescription content="Add new products to the order">
+        <sentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="bf1" content="Add new products to the warehouse."/>
+      </briefDescription>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:BasicFlow">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 1" description="The user selects the item to add." content="The user selects the item to add.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="selects the product to add">
+            <predicator name="selects" description="selects">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="product" description="product" basis="product"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to add">
+              <form name="to add" description="to add" preHS="to" postHS="" headString="add">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to add" description="to add" form="Infinitive" Basis="add"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 2" description="The User selects the quantity of item to add." content="The User selects the quantity of item to add.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="selects the quantity of product to add">
+            <predicator name="selects" description="selects">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the quantity">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the quantity" description="the quantity" preHS="the" postHS="" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="quantity" description="quantity" basis="quantity"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="of product">
+              <form description="of product">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="product" description="product" preHS="product" postHS="" headString="product" actorPosition="isActor">
+                  <head name="product" description="product" basis="product"/>
+                </postHeadString>
+                <head name="of" description="of"/>
+              </form>
+            </complements>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to add">
+              <form name="to add" description="to add" preHS="to" postHS="" headString="add">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to add" description="to add" form="Infinitive" Basis="add"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:ConditionCheckSentence" name="Basic flow step 3" description="The system VALIDATES THAT the quantity entered isnt negative." content="The system VALIDATES THAT the quantity entered isnt negative.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Validation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <condition xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="condition" description="The quantity entered isnt negative." content="The quantity entered isnt negative.">
+            <subject description="The quantity entered">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The quantity entered" description="The quantity entered" preHS="The" postHS="entered" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The "/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="quantity" description="quantity" basis="quantity"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:EdParticiplePhrase" description="entered">
+                  <head name="entered" description="entered" form="PastParticiple" Basis="enter"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="isn't negative">
+              <predicator name="isn't" description="isn't" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="isn't" description="isn't" Basis="is"/>
+              </predicator>
+              <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="negative">
+                <form description="negative" preHS="" postHS="" headString="negative">
+                  <head name="negative" description="negative"/>
+                </form>
+              </complements>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SLVSubjAdjPComplt" name="S-LV-SubjAdjPComplt" description="S-LV-SubjAdjPComplt"/>
+          </condition>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 4" description="The system updates the quantity of the product." content="The system updates the quantity of the product.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="updates the quantity of the product">
+            <predicator name="updates" description="updates">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="adds" description="adds" Basis="add"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the quantity">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the quantity" description="the quantity" preHS="the" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="quantity" description="quantity" basis="quantity"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="of the product">
+              <form description="of the product">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" postHS="" headString="product" actorPosition="isActor">
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+                </postHeadString>
+                <head name="of" description="of"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDOObjPPComplt" name="SysSubj-V-DO-PPComplt" description="SysSubj-V-DO-PPComplt" isPassiveSentence="false"/>
+        </steps>
+        <postCondition name="Basic flow post" content="The item has been added. The quantity of the product has been updated.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The product has been added." content="The product has been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has been added">
+              <predicator name="has been added" description="has been added">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been added" description="has been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 2" description="The quantity of the product has been updated." content="The quantity of the product has been updated.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The quantity of the product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The quantity of the product" description="The quantity of the product" preHS="The" postHS="of th product" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="quantity" description="quantity" basis="quantity"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:PrepositionalPhrase" name="of the product" description="of the product" headString="">
+                  <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" postHS="" headString="product">
+                    <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                    <head name="product" description="product" basis="product"/>
+                  </postHeadString>
+                  <head name="of" description="of"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="has been updated">
+              <predicator name="has been updated" description="has been updated">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been updated" description="has been updated" form="Passive" Basis="update"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SpecificAlternative" name="alt 1" bfs="//@modelElements.3/@specification/@flows.0/@steps.2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt 1 Step 1" description="The system displays an error message." content="The system displays an error message.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="displays an error message">
+            <predicator name="displays" description="displays">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="displays" description="displays" Basis="display"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="an error message">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="an error message" description="an error message" preHS="an error" postHS="" headString="message">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="an" description="an"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="error" description="error" basis="error"/>
+                <head name="message" description="message" basis="message"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt 1 Step 2" content="ABORT">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+        </steps>
+        <postCondition name="alt1 Post" content="The item has not been added. The quantity of the item has not been updated.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The product has not been added." content="The product has not been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has not been added">
+              <predicator name="has not been added" description="has not been added" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been added" description="has not been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 2" description="The quantity of the product has not been updated." content="The quantity of the product has not been updated.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The quantity of the product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The quantity of the product" description="The quantity of the product" preHS="The" postHS="of th product" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="quantity" description="quantity" basis="quantity"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:PrepositionalPhrase" name="of the product" description="of the product" headString="">
+                  <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" postHS="" headString="product">
+                    <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                    <head name="product" description="product" basis="product"/>
+                  </postHeadString>
+                  <head name="of" description="of"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="has not been updated">
+              <predicator name="has not been updated" description="has not been updated">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been updated" description="has not been updated" form="Passive" Basis="update"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:GlobalAlternative" name="alt 2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Condition" description="The user clickCancel." content="The user clickCancel.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="enters Cancel">
+            <predicator name="enters" description="enters">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="enters" description="enters" Basis="enter"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="Cancel">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Cancel" description="Cancel" preHS="" postHS="" headString="Cancel">
+                <head name="Cancel" description="Cancel" number="Plural" basis="cancel"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDO" name="ActorSubj-V-DO" description="ActorSubj-V-DO" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Step 1" description="The system cancels the transaction." content="The system cancels the transaction.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="cancels the transaction">
+            <predicator name="cancels" description="cancels">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="cancels" description="cancels" Basis="cancel"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the transaction">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the transaction" description="the transaction" preHS="the " postHS="" headString="transaction">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="transaction" description="transaction" basis="transaction"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt2 Step 2" content="ABORT"/>
+        <postCondition name="alt2 Post" content="The item has not been added.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Post 1" description="The product has not been added." content="The product has not been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has not been added">
+              <predicator name="has not been added" description="has not been added" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been added" description="has not been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+    </specification>
+  </modelElements>
+  <modelElements xsi:type="squall.tao.usecasemetamodel.UseCaseModel:UseCase" name="Delete Items" description="Delete Items">
+    <specification>
+      <preCondition content="The system is idle.">
+        <preConditonSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Pre 1" description="The system is idle." content="The system is idle.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="is idle">
+            <predicator name="is" description="is">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="is" description="is"/>
+            </predicator>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="idle">
+              <form description="idle" preHS="" postHS="" headString="idle">
+                <head name="idle" description="idle"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjLVSubjAdjPComplt" name="SysSubj-LV-SubjAdjPComplt" description="SysSubj-LV-SubjAdjPComplt" isPassiveSentence="false"/>
+        </preConditonSentences>
+      </preCondition>
+      <briefDescription content="Add new products to the warehouse.">
+        <sentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="bf1" content="Add new products to the warehouse."/>
+      </briefDescription>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:BasicFlow">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 1" description="The Orders Manager selects the product to add." content="The Orders Manager selects the product to add.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="selects the product to add">
+            <predicator name="selects" description="selects">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="product" description="product" basis="product"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to add">
+              <form name="to add" description="to add" preHS="to" postHS="" headString="add">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to add" description="to add" form="Infinitive" Basis="add"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 2" description="The Orders Manager selects the quantity of product to add." content="The Orders Manager selects the quantity of product to add.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="selects the quantity of product to add">
+            <predicator name="selects" description="selects">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the quantity">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the quantity" description="the quantity" preHS="the" postHS="" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="quantity" description="quantity" basis="quantity"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="of product">
+              <form description="of product">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="product" description="product" preHS="product" postHS="" headString="product" actorPosition="isActor">
+                  <head name="product" description="product" basis="product"/>
+                </postHeadString>
+                <head name="of" description="of"/>
+              </form>
+            </complements>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to add">
+              <form name="to add" description="to add" preHS="to" postHS="" headString="add">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to add" description="to add" form="Infinitive" Basis="add"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:ConditionCheckSentence" name="Basic flow step 3" description="The system VALIDATES THAT the quantity entered isnt negative." content="The system VALIDATES THAT the quantity entered isnt negative.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Validation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <condition xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="condition" description="The quantity entered isnt negative." content="The quantity entered isnt negative.">
+            <subject description="The quantity entered">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The quantity entered" description="The quantity entered" preHS="The" postHS="entered" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The "/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="quantity" description="quantity" basis="quantity"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:EdParticiplePhrase" description="entered">
+                  <head name="entered" description="entered" form="PastParticiple" Basis="enter"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="isn't negative">
+              <predicator name="isn't" description="isn't" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="isn't" description="isn't" Basis="is"/>
+              </predicator>
+              <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="negative">
+                <form description="negative" preHS="" postHS="" headString="negative">
+                  <head name="negative" description="negative"/>
+                </form>
+              </complements>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SLVSubjAdjPComplt" name="S-LV-SubjAdjPComplt" description="S-LV-SubjAdjPComplt"/>
+          </condition>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 4" description="The system updates the quantity of the product." content="The system updates the quantity of the product.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="updates the quantity of the product">
+            <predicator name="updates" description="updates">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="adds" description="adds" Basis="add"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the quantity">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the quantity" description="the quantity" preHS="the" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="quantity" description="quantity" basis="quantity"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="of the product">
+              <form description="of the product">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" postHS="" headString="product" actorPosition="isActor">
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+                </postHeadString>
+                <head name="of" description="of"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDOObjPPComplt" name="SysSubj-V-DO-PPComplt" description="SysSubj-V-DO-PPComplt" isPassiveSentence="false"/>
+        </steps>
+        <postCondition name="Basic flow post" content="The product has been added. The quantity of the product has been updated.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The product has been added." content="The product has been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has been added">
+              <predicator name="has been added" description="has been added">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been added" description="has been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 2" description="The quantity of the product has been updated." content="The quantity of the product has been updated.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The quantity of the product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The quantity of the product" description="The quantity of the product" preHS="The" postHS="of th product" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="quantity" description="quantity" basis="quantity"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:PrepositionalPhrase" name="of the product" description="of the product" headString="">
+                  <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" postHS="" headString="product">
+                    <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                    <head name="product" description="product" basis="product"/>
+                  </postHeadString>
+                  <head name="of" description="of"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="has been updated">
+              <predicator name="has been updated" description="has been updated">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been updated" description="has been updated" form="Passive" Basis="update"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SpecificAlternative" name="alt 1" bfs="//@modelElements.4/@specification/@flows.0/@steps.2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt 1 Step 1" description="The system displays an error message." content="The system displays an error message.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="displays an error message">
+            <predicator name="displays" description="displays">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="displays" description="displays" Basis="display"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="an error message">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="an error message" description="an error message" preHS="an error" postHS="" headString="message">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="an" description="an"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="error" description="error" basis="error"/>
+                <head name="message" description="message" basis="message"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt 1 Step 2" content="ABORT">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+        </steps>
+        <postCondition name="alt1 Post" content="The product has not been added. The quantity of the product has not been updated.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The product has not been added." content="The product has not been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has not been added">
+              <predicator name="has not been added" description="has not been added" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been added" description="has not been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 2" description="The quantity of the product has not been updated." content="The quantity of the product has not been updated.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The quantity of the product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The quantity of the product" description="The quantity of the product" preHS="The" postHS="of th product" headString="quantity">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="quantity" description="quantity" basis="quantity"/>
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:PrepositionalPhrase" name="of the product" description="of the product" headString="">
+                  <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the product" description="the product" preHS="the" postHS="" headString="product">
+                    <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                    <head name="product" description="product" basis="product"/>
+                  </postHeadString>
+                  <head name="of" description="of"/>
+                </postHeadString>
+              </form>
+            </subject>
+            <predicate description="has not been updated">
+              <predicator name="has not been updated" description="has not been updated">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been updated" description="has not been updated" form="Passive" Basis="update"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:GlobalAlternative" name="alt 2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Condition" description="The Orders Manager enters Cancel." content="The Orders Manager enters Cancel.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="enters Cancel">
+            <predicator name="enters" description="enters">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="enters" description="enters" Basis="enter"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="Cancel">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Cancel" description="Cancel" preHS="" postHS="" headString="Cancel">
+                <head name="Cancel" description="Cancel" number="Plural" basis="cancel"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDO" name="ActorSubj-V-DO" description="ActorSubj-V-DO" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Step 1" description="The system cancels the transaction." content="The system cancels the transaction.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="cancels the transaction">
+            <predicator name="cancels" description="cancels">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="cancels" description="cancels" Basis="cancel"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the transaction">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the transaction" description="the transaction" preHS="the " postHS="" headString="transaction">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="transaction" description="transaction" basis="transaction"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt2 Step 2" content="ABORT"/>
+        <postCondition name="alt2 Post" content="The product has not been added.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Post 1" description="The product has not been added." content="The product has not been added.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The product">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The product" description="The product" preHS="The" headString="product">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="product" description="product" basis="product"/>
+              </form>
+            </subject>
+            <predicate description="has not been added">
+              <predicator name="has not been added" description="has not been added" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been added" description="has not been added" form="Passive" Basis="add"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+    </specification>
+  </modelElements>
+  <modelElements xsi:type="squall.tao.usecasemetamodel.UseCaseModel:UseCase" name="Cancel Orders" description="Cancel Orders">
+    <specification>
+      <preCondition content="The system is idle.">
+        <preConditonSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Pre 1" description="The system is idle." content="The system is idle.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="is idle">
+            <predicator name="is" description="is">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:LinkingVerb" name="is" description="is"/>
+            </predicator>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SubjAdjComplt" description="idle">
+              <form description="idle" preHS="" postHS="" headString="idle">
+                <head name="idle" description="idle"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjLVSubjAdjPComplt" name="SysSubj-LV-SubjAdjPComplt" description="SysSubj-LV-SubjAdjPComplt" isPassiveSentence="false"/>
+        </preConditonSentences>
+      </preCondition>
+      <briefDescription content="Delete an order.">
+        <sentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="bf1" content="Delete an order."/>
+      </briefDescription>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:BasicFlow">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 1" description="The Orders Manager selects the order to remove." content="The Orders Manager selects the order to remove.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Initiation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="selects the order to remove.">
+            <predicator name="selects" description="selects">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="selects" description="selects" Basis="select"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the order" description="the order" preHS="the" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to remove">
+              <form name="to remove" description="to remove" preHS="to" postHS="" headString="remove">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to remove" description="to remove" form="Infinitive" Basis="remove"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDOObjInfinitiveComplt" name="ActorSubj-V-DO-Obj-Infinitive-Complt" description="ActorSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 2" description="The system searches the order to remove from the list of orders." content="The system searches the order to remove from the list of orders.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="searches the order to remove from the list of orders.">
+            <predicator name="searches" description="searches">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="searches" description="searches" Basis="searches"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the order" description="the order" preHS="the" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </objects>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjInfinitiveComplt" description="to remove">
+              <form name="to remove" description="to remove" preHS="to" postHS="" headString="remove">
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="to remove" description="to remove" form="Infinitive" Basis="remove"/>
+              </form>
+            </complements>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="from the list" containingSystem="true">
+              <form description="from the list">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the list" description="the list" preHS="the " postHS="" headString="list" sysPosition="headStringSys">
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                  <head name="list" description="list" basis="list"/>
+                </postHeadString>
+                <head xsi:type="squall.tao.usecasemetamodel.UseCaseNL:From" name="from" description="from"/>
+              </form>
+            </complements>
+            <complements xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ObjPPComplt" description="of orders">
+              <form description="of orders">
+                <postHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="orders" description="orders" preHS="orders" postHS="" headString="orders" actorPosition="isActor">
+                  <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="orders" description="orders" number="Plural" basis="order"/>
+                </postHeadString>
+                <head name="of" description="of"/>
+              </form>
+            </complements>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDOObjInfinitiveComplt" name="SysSubj-V-DO-Obj-Infinitive-Complt" description="SysSubj-V-DO-Obj-Infinitive-Complt"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow step 3" description="The system cancels the order." content="The system cancels the order.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="cancels the order">
+            <predicator name="cancels" description="cancels">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="cancels" description="cancels" Basis="cancel"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the order" description="the order" preHS="the" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-DO"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:ConditionCheckSentence" name="Basic flow step 4" description="The system VALIDATES THAT the order has been cancelled." content="The system VALIDATES THAT the order has been cancelled.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:Validation"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <condition xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="condition" description="The order has been cancelled." content="The order has been cancelled.">
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" postHS="order" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has been cancelled">
+              <predicator name="has been cancelled" description="has been cancelled">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been cancelled" description="has been cancelled" form="Passive" Basis="cancel"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </condition>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+        </steps>
+        <postCondition name="Basic flow post">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Basic flow post 1" description="The order has been cancelled." content="The order has been cancelled.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" postHS="order" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has been cancelled">
+              <predicator name="has been cancelled" description="has been cancelled">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has been cancelled" description="has been cancelled" form="Passive" Basis="cancel"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SpecificAlternative" name="alt 1" bfs="//@modelElements.5/@specification/@flows.0/@steps.3">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt1 Step 1" description="The system displays an error message." content="The system displays an error message.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="displays an error message">
+            <predicator name="displays" description="displays">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="displays" description="displays" Basis="display"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="an error message">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="an error message" description="an error message" preHS="an error" postHS="" headString="message">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="an" description="an"/>
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="error" description="error" basis="error"/>
+                <head name="message" description="message" basis="message"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt1 Step 2" content="ABORT">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+        </steps>
+        <postCondition name="alt1 Post" description="The order has not been cancelled." content="The order has not been cancelled.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Post 1" description="The order has not been cancelled." content="The order has not been cancelled.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has not been cancelled">
+              <predicator name="has not been cancelled" description="has not been cancelled" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been cancelled" description="has not been cancelled" form="Passive" Basis="cancelled"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+      <flows xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:GlobalAlternative" name="alt 2">
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Condition" description="The Orders Manager enters Cancel." content="The Orders Manager enters Cancel.">
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActorSubj" description="Orders Manager" actor="//@modelElements.0">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Orders Manager" description="Orders Manager" preHS="Orders" postHS="" headString="Manager" actorPosition="isActor" containedActor="//@modelElements.0">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Noun" name="Orders" description="Orders" number="Plural" basis="order"/>
+              <head name="Manager" description="Manager" basis="manager"/>
+            </form>
+          </subject>
+          <predicate description="enters Cancel">
+            <predicator name="enters" description="enters">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="enters" description="enters" Basis="enter"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="Cancel">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="Cancel" description="Cancel" preHS="" postHS="" headString="Cancel">
+                <head name="Cancel" description="Cancel" number="Plural" basis="cancel"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:ActorSubjVDO" name="ActorSubj-V-DO" description="ActorSubj-V-DO" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="alt2 Step 1" description="The system cancels the transaction." content="The system cancels the transaction.">
+          <transactionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:InternalTransaction"/>
+          <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ActionSentence"/>
+          <subject xsi:type="squall.tao.usecasemetamodel.UseCaseNL:SysSubj" description="The system">
+            <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The system" description="The system" preHS="The " postHS="" headString="system" sysPosition="headStringSys">
+              <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+              <head name="system" description="system" basis="system"/>
+            </form>
+          </subject>
+          <predicate description="cancels the transaction">
+            <predicator name="cancels" description="cancels">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="cancels" description="cancels" Basis="cancel"/>
+            </predicator>
+            <objects xsi:type="squall.tao.usecasemetamodel.UseCaseNL:DirectObject" description="the transaction">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="the transaction" description="the transaction" preHS="the " postHS="" headString="transaction">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="the" description="the"/>
+                <head name="transaction" description="transaction" basis="transaction"/>
+              </form>
+            </objects>
+          </predicate>
+          <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SysSubjVDO" name="SysSubj-V-DO" description="SysSubj-V-O" isPassiveSentence="false"/>
+        </steps>
+        <steps xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:AbortSentence" name="alt2 Step 2" content="ABORT"/>
+        <postCondition name="alt2 Post" description="The order has not been cancelled." content="The order has not been cancelled.">
+          <postCondtionSentences xsi:type="squall.tao.usecasemetamodel.UseCaseTemplate:SimpleSentence" name="Post 1" description="The order has not been cancelled." content="The order has not been cancelled.">
+            <functionType xsi:type="squall.tao.usecasemetamodel.SentenceSemanticTypes:ConditionSentence"/>
+            <subject description="The order">
+              <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:NounPhrase" name="The order" description="The order" preHS="The" headString="order">
+                <preHeadString xsi:type="squall.tao.usecasemetamodel.UseCaseNL:Determiner" name="The" description="The"/>
+                <head name="order" description="order" basis="order"/>
+              </form>
+            </subject>
+            <predicate description="has not been cancelled">
+              <predicator name="has not been cancelled" description="has not been cancelled" isNegative="true">
+                <form xsi:type="squall.tao.usecasemetamodel.UseCaseNL:ActionVerb" name="has not been cancelled" description="has not been cancelled" form="Passive" Basis="cancelled"/>
+              </predicator>
+            </predicate>
+            <pattern xsi:type="squall.tao.usecasemetamodel.UseCaseNLSentencePattern:SV" name="S-V" description="S-V" isPassiveSentence="true"/>
+          </postCondtionSentences>
+        </postCondition>
+      </flows>
+    </specification>
+  </modelElements>
+</squall.tao.usecasemetamodel.UseCaseModel:UCModel>
